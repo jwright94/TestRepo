@@ -19,5 +19,10 @@ pipeline {
         archiveArtifacts(artifacts: 'deploy.tar.gz', onlyIfSuccessful: true)
       }
     }
+    stage('Pretend to do Stuff') {
+      steps {
+        sh 'sudo docker ps'
+      }
+    }
   }
 }

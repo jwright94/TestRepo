@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'dotnet publish --verbosity \'diagnostic\' --self-contained --runtime \'linux-musl-x64\' true /nologo /p:OutDir="out"'
+        sh 'dotnet publish --self-contained true --runtime \'linux-musl-x64\' /nologo /p:OutDir="out"'
         sh '''tar -zcvf deploy.tar.gz ./out
 '''
         archiveArtifacts(artifacts: 'deploy.tar.gz', onlyIfSuccessful: true)

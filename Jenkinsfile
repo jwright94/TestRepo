@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'dotnet publish --self-contained /nologo /p:OutDir="out"'
+        sh 'dotnet publish --self-contained true /nologo /p:OutDir="out"'
         sh '''tar -zcvf deploy.tar.gz ./out
 '''
         archiveArtifacts(artifacts: 'deploy.tar.gz', onlyIfSuccessful: true)

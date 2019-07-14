@@ -13,8 +13,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'dotnet build'
-        archiveArtifacts(artifacts: 'bin/**/*.dll', onlyIfSuccessful: true)
+        sh 'dotnet publish /nologo /p:OutDir="out"'
+        sh 'zip -r deploy.zip ./out'
+        archiveArtifacts(artifacts: 'deploy.zip', onlyIfSuccessful: true)
       }
     }
   }

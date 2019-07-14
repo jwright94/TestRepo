@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Hello') {
-      steps {
-        echo 'Hello World!'
+      parallel {
+        stage('Hello') {
+          steps {
+            echo 'Hello World!'
+          }
+        }
+        stage('Print Branch Name') {
+          steps {
+            sh 'echo ${BRANCH_NAME}'
+          }
+        }
       }
     }
     stage('Restore') {

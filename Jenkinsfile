@@ -14,8 +14,9 @@ pipeline {
     stage('Build') {
       steps {
         sh 'dotnet publish /nologo /p:OutDir="out"'
-        sh 'zip -r deploy.zip ./out'
-        archiveArtifacts(artifacts: 'deploy.zip', onlyIfSuccessful: true)
+        sh '''tar -zcvf deploy.tar.gz ./out
+'''
+        archiveArtifacts(artifacts: 'deploy.tar.gz', onlyIfSuccessful: true)
       }
     }
   }

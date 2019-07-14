@@ -14,7 +14,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'dotnet build'
-        archiveArtifacts(artifacts: './bin/*.dll', onlyIfSuccessful: true)
+        archiveArtifacts(artifacts: './bin/**/*.dll', onlyIfSuccessful: true)
       }
     }
   }

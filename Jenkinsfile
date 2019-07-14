@@ -21,7 +21,7 @@ pipeline {
     }
     stage('Pretend to do Stuff') {
       steps {
-        sh 'sudo docker ps'
+        sh 'docker ps'
       }
     }
   }

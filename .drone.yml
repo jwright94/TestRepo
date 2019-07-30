@@ -14,7 +14,13 @@ steps:
     path: /app
 - name: deploy
   image: docker
+  privileged: true
   commands:
   - docker ps
   volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+  - name: docker
+    path: /var/run/docker.sock
+    
+volumes:
+- name: docker
+  host: /var/run/docker.sock

@@ -24,6 +24,9 @@ steps:
   commands:
   - ls
   - docker build -t jwright94/simpleapi .
+  when:
+    branch:
+    - master
   volumes:
   - name: docker
     path: /var/run/docker.sock

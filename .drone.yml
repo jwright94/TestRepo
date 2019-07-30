@@ -5,12 +5,9 @@ steps:
 - name: build
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
-  - ls
-  - ls ~/
-  - cd /app
-  - ls
   - dotnet restore
-  - dotnet publish ./PayrollAPI -c Debug --self-contained true -r linux-musl-x64 -o /app/out
+  - dotnet publish ./PayrollAPI -c Debug --self-contained true -r linux-musl-x64 -o ./builds/PayrollAPI
+  - ls ./builds/PayrollAPI
   volumes:
   - name: app
     path: /app

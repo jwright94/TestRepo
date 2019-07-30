@@ -20,7 +20,8 @@ steps:
   volumes:
   - name: docker
     path: /var/run/docker.sock
-    
+
 volumes:
 - name: docker
-  host: /var/run/docker.sock
+  host: 
+    path: /var/run/docker.sock

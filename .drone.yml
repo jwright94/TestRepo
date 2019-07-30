@@ -8,6 +8,13 @@ steps:
   - dotnet restore
   - dotnet publish -c Release --self-contained true -r linux-musl-x64 -o ./builds/TestRepo
   - ls ./builds/TestRepo
+  - ls /app
   volumes:
   - name: app
     path: /app
+- name: deploy
+  image: docker
+  commands:
+  - docker ps
+  volumes:
+  - /var/run/docker.sock:/var/run/docker.sock

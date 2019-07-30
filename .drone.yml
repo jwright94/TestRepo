@@ -23,7 +23,7 @@ steps:
   privileged: true
   commands:
   - ls
-  - docker ps
+  - docker build -t jwright94/simpleapi .
   volumes:
   - name: docker
     path: /var/run/docker.sock

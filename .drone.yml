@@ -15,6 +15,7 @@ steps:
   image: docker
   privileged: true
   commands:
+  - ls
   - docker ps
   volumes:
   - name: docker

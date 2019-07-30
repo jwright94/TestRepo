@@ -1,0 +1,11 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+    image: mcr.microsoft.com/dotnet/core/sdk:2.1
+    commands:
+    - cd /app
+    - ls
+    - dotnet restore
+    - dotnet publish ./PayrollAPI -c Debug --self-contained true -r linux-musl-x64 -o /app/out

@@ -13,8 +13,8 @@ steps:
 - name: build
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
-  - dotnet publish -c Release --self-contained true -r linux-musl-x64 -o ./builds/HelloDrone
-  - ls ./builds/HelloDrone
+  - dotnet publish ./SimpleAPI -c Release --self-contained true -r linux-musl-x64 -o ./build
+  - ls ./SimpleAPI/build
   volumes:
   - name: app
     path: /app

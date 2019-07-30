@@ -6,8 +6,15 @@ steps:
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
   - dotnet restore
-  - dotnet publish -c Release --self-contained true -r linux-musl-x64 -o ./builds/TestRepo
-  - ls ./builds/TestRepo
+  - dotnet publish -c Release --self-contained true -r linux-musl-x64 -o ./builds/HelloDrone
+  - ls ./builds/HelloDrone
+  volumes:
+  - name: app
+    path: /app
+- name: test
+  image: mcr.microsoft.com/dotnet/core/sdk:2.1
+  commands:
+  - dotnet test
   volumes:
   - name: app
     path: /app

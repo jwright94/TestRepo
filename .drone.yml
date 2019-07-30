@@ -8,7 +8,6 @@ steps:
   - dotnet restore
   - dotnet publish -c Release --self-contained true -r linux-musl-x64 -o ./builds/TestRepo
   - ls ./builds/TestRepo
-  - ls /app
   volumes:
   - name: app
     path: /app
@@ -16,6 +15,7 @@ steps:
   image: docker
   privileged: true
   commands:
+  - ls
   - docker ps
   volumes:
   - name: docker
@@ -25,3 +25,5 @@ volumes:
 - name: docker
   host: 
     path: /var/run/docker.sock
+- name: app
+  temp: {}

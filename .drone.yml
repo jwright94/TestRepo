@@ -5,6 +5,8 @@ steps:
 - name: build
   image: mcr.microsoft.com/dotnet/core/sdk:2.1
   commands:
+  - ls
+  - ls ~/
   - cd /app
   - ls
   - dotnet restore

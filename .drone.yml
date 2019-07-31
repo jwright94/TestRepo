@@ -24,6 +24,8 @@ steps:
   commands:
   - ls
   - docker build -t jwright94/simpleapi .
+  - docker rm HelloDrone
+  - docker run --name HelloDrone --env VIRTUAL_HOST=demo.harmless.ai --env LETSENCRYPT_HOST=demo.harmless.ai --env LETSENCRYPT_EMAIL=admin@harmless.ai --env VIRTUAL_PORT=80 -p 8010:80 jwright94/simpleapi:latest
   when:
     branch:
     - master
